@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinancialPlannerMobile.CreateAccount" BackgroundColor="#142340">
+    <ContentPage.Resources>
+            <ResourceDictionary>
+                <Style x:Key="buttonStyle" TargetType="Label">
+                    <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                <Setter Property="BackgroundColor" Value="#40b4d7" />
+                    <Setter Property="TextColor" Value="White" />
+                </Style>
+
+                <Style x:Key="labelStyle" TargetType="Label">
+                    <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                    <Setter Property="TextColor" Value="White" />
+                    <Setter Property="FontSize" Value="Medium" ></Setter>
+                </Style>
+
+            <Style x:Key="entryStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Medium" ></Setter>
+            </Style>
+        </ResourceDictionary>
+        </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Image Source="bannersmall.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand"></Image>
+
+                <StackLayout HorizontalOptions="Fill" Padding="10,10,0,0">
+                    <Label Text="Account name" Style="{StaticResource labelStyle}"></Label>
+                    <Entry Style="{StaticResource entryStyle}" x:Name="accountName" Margin="0,0,10,0"></Entry>
+
+                    <Label Text="Balance" Style="{StaticResource labelStyle}"></Label>
+                    <Entry Style="{StaticResource entryStyle}" x:Name="balance" Keyboard="Numeric" Margin="0,0,10,0"></Entry>
+
+                    <Label Text="Interest Rate" Style="{StaticResource labelStyle}"></Label>
+                    <Entry Style="{StaticResource entryStyle}" x:Name="interestRate" Keyboard="Numeric" Margin="0,0,10,0"></Entry>
+
+                    <Label Text="Account Type" Style="{StaticResource labelStyle}"></Label>
+                    <Picker Style="{StaticResource entryStyle}" x:Name="accountType" Margin="0,0,10,0"></Picker>
+
+                    <Label Text="Household" Style="{StaticResource labelStyle}"></Label>
+                    <Picker Style="{StaticResource entryStyle}" x:Name="householdPicker" Margin="0,0,10,0"></Picker>
+
+                </StackLayout>
+                <Button Style="{StaticResource buttonStyle}" Clicked="Button_Clicked" Text="Add Account"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinancialPlannerMobile.CreateTransaction" BackgroundColor="#142340">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                <Setter Property="BackgroundColor" Value="#40b4d7" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Medium" ></Setter>
+            </Style>
+
+            <Style x:Key="entryStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Medium" ></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Image Source="bannersmall.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand"></Image>
+
+                <StackLayout HorizontalOptions="Fill" Padding="10,10,0,0">
+                    <Label Text="Description (Optional)" Style="{StaticResource labelStyle}"></Label>
+                    <Entry Style="{StaticResource entryStyle}" x:Name="des" Margin="0,0,10,0"></Entry>
+
+                    <Label Text="From" Style="{StaticResource labelStyle}"></Label>
+                    <Entry Style="{StaticResource entryStyle}" x:Name="from" Margin="0,0,10,0"></Entry>
+
+                    <Label Text="Date" Style="{StaticResource labelStyle}"></Label>
+                    <DatePicker Style="{StaticResource entryStyle}" x:Name="date" Margin="0,0,10,0"></DatePicker>
+
+                    <Label Text="Amount" Style="{StaticResource labelStyle}"></Label>
+                    <Entry Style="{StaticResource entryStyle}" x:Name="amount" Keyboard="Numeric" Margin="0,0,10,0"></Entry>
+
+                    <Label Text="Transaction Type" Style="{StaticResource labelStyle}"></Label>
+                    <Picker Style="{StaticResource entryStyle}" x:Name="type" Margin="0,0,10,0"></Picker>
+
+                    <Label Text="Transaction Status" Style="{StaticResource labelStyle}"></Label>
+                    <Picker Style="{StaticResource entryStyle}" x:Name="status" Margin="0,0,10,0"></Picker>
+
+                    <Label Text="Sub Category" Style="{StaticResource labelStyle}"></Label>
+                    <Picker Style="{StaticResource entryStyle}" x:Name="subCat" Margin="0,0,10,0"></Picker>
+
+                </StackLayout>
+                <Button Style="{StaticResource buttonStyle}" Clicked="Button_Clicked" Text="Add Transaction"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinancialPlannerMobile.TransactionListVoid" BackgroundColor="#142340">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MnuItemTransactions" Order="Primary" Activated="MnuItemTransactions_Activated" Icon="Xamarin.png" Text="Add Transaction" Priority="0" />
+        <ToolbarItem Name="MnuItemTransactions" Order="Primary" Activated="MnuItemTransactions_Activated"  Icon="Xamarin.png" Text="" Priority="1" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                <Setter Property="BackgroundColor" Value="#142340" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="Raleway-Black.ttf#Raleway" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Image Source="bannersmall.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand"></Image>
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Start" Padding="10,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" ></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions Width="Auto">
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Row="0" Grid.Column="0" Text="All" Style="{StaticResource buttonStyle}" Clicked="Button_Clicked"></Button>
+                        <Button Grid.Row="0" Grid.Column="1" Text="Debit" Style="{StaticResource buttonStyle}" Clicked="Button_Clicked1"></Button>
+                        <Button Grid.Row="0" Grid.Column="2" Text="Credit" Style="{StaticResource buttonStyle}" Clicked="Button_Clicked2"></Button>
+                        <Button Grid.Row="0" Grid.Column="3" Text="Void" Style="{StaticResource buttonStyle}" BackgroundColor="#40b4d7"></Button>
+                    </Grid>
+                </StackLayout>
+
+
+                <ListView x:Name="lstTransactions" ItemsSource="{Binding TransactionList}" RowHeight="100" 
+                          IsPullToRefreshEnabled="True"
+                          RefreshCommand="{Binding RefreshCommand}" 
+                          IsRefreshing="{Binding IsRefreshing}" SelectionMode="Single" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Start" Padding="20,0,0,0">
+
+                                        <Grid x:Name="HeaderGrid"  BackgroundColor="#fffff">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" ></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions Width="Auto">
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Row="0" Grid.Column="0" Text="From: " Style="{StaticResource labelStyle}"></Label>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding From}" Style="{StaticResource labelStyle}"></Label>
+
+                                            <Label Grid.Row="1" Grid.Column="0" Text="Amount: " Style="{StaticResource labelStyle}"></Label>
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Amount}" Style="{StaticResource labelStyle}"></Label>
+
+                                            <Label Grid.Row="2" Grid.Column="0" Text="Type: " Style="{StaticResource labelStyle}"></Label>
+                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding TypeName}" Style="{StaticResource labelStyle}"></Label>
+
+                                            <Label Grid.Row="3" Grid.Column="0" Text="Status: " Style="{StaticResource labelStyle}" Margin="0,0,0,15"></Label>
+                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding StatusName}" Style="{StaticResource labelStyle}" Margin="0,0,0,15"></Label>
+                                        </Grid>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>
